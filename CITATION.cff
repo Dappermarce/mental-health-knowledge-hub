@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Si utilizas NeuroMind Atlas en docencia o investigación, cita esta versión."
+title: "NeuroMind Atlas: Psicología, psiquiatría y neurociencia"
+type: software
+authors:
+  - family-names: "Kroll"
+    given-names: "Marcelo Carmelino"
+version: 2.0.0
+date-released: 2026-07-15
+url: "https://neuromindatlas.vercel.app/"
+repository-code: "https://github.com/Dappermarce/NeuroMind-Atlas"
+abstract: "Atlas educativo bilingüe de psicología, psiquiatría, salud mental y neurociencia."
+keywords:
+  - psychology
+  - psychiatry
+  - mental health
+  - neuroscience

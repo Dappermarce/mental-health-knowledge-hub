@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="mindGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8e8e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="thoughtGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.3" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Head silhouette -->
+  <path d="M150 30 C 200 25, 250 50, 260 100 C 270 150, 260 200, 240 230 C 220 260, 180 270, 150 270 C 120 270, 80 260, 60 230 C 40 200, 30 150, 40 100 C 50 50, 100 25, 150 30 Z" 
+        fill="url(#mindGradient)" 
+        stroke="#fff" 
+        stroke-width="2" 
+        opacity="0.8"/>
+  
+  <!-- Brain area -->
+  <ellipse cx="150" cy="120" rx="80" ry="60" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  
+  <!-- Thought patterns -->
+  <g fill="url(#thoughtGradient)">
+    <!-- Central thought -->
+    <circle cx="150" cy="120" r="15">
+      <animate attributeName="r" values="15;20;15" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Surrounding thoughts -->
+    <circle cx="120" cy="100" r="8">
+      <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="180" cy="100" r="8">
+      <animate attributeName="r" values="8;12;8" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130" cy="140" r="6">
+      <animate attributeName="r" values="6;10;6" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170" cy="140" r="6">
+      <animate attributeName="r" values="6;10;6" dur="2.7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connecting lines between thoughts -->
+  <g stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="none">
+    <line x1="150" y1="120" x2="120" y2="100">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="150" y1="120" x2="180" y2="100">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="150" y1="120" x2="130" y2="140">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="150" y1="120" x2="170" y2="140">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Idea sparks -->
+  <g fill="#fff">
+    <circle cx="110" cy="80" r="2">
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190" cy="80" r="2">
+      <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="130" r="1.5">
+      <animate attributeName="opacity" values="0;1;0" dur="1.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="130" r="1.5">
+      <animate attributeName="opacity" values="0;1;0" dur="1.7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Thought bubbles emanating from head -->
+  <g fill="rgba(255,255,255,0.4)">
+    <circle cx="80" cy="60" r="12">
+      <animate attributeName="cy" values="60;40;60" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="70" cy="80" r="8">
+      <animate attributeName="cy" values="80;60;80" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="60" r="12">
+      <animate attributeName="cy" values="60;40;60" dur="4.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="230" cy="80" r="8">
+      <animate attributeName="cy" values="80;60;80" dur="4.7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Consciousness waves -->
+  <g stroke="rgba(255,255,255,0.5)" stroke-width="1" fill="none">
+    <ellipse cx="150" cy="120" rx="40" ry="30">
+      <animate attributeName="rx" values="40;60;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="30;45;30" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="150" cy="120" rx="60" ry="45">
+      <animate attributeName="rx" values="60;80;60" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="45;60;45" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.5s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  
+  <!-- Abstract symbols representing thoughts -->
+  <g fill="rgba(255,255,255,0.6)" font-size="12" font-family="Arial">
+    <text x="90" y="110" opacity="0.7">💭</text>
+    <text x="210" y="110" opacity="0.7">🧠</text>
+    <text x="150" y="90" opacity="0.7">💡</text>
+  </g>
+</svg>

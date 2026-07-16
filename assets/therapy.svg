@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" width="350" height="350">
+  <defs>
+    <linearGradient id="therapyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff8e8e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Therapy session setting -->
+  <!-- Chair 1 (therapist) -->
+  <g fill="url(#therapyGradient)" stroke="#fff" stroke-width="2">
+    <rect x="80" y="180" width="60" height="80" rx="10" opacity="0.8"/>
+    <rect x="70" y="160" width="80" height="25" rx="12" opacity="0.8"/>
+    <!-- Chair legs -->
+    <rect x="85" y="260" width="6" height="30" rx="3"/>
+    <rect x="129" y="260" width="6" height="30" rx="3"/>
+  </g>
+  
+  <!-- Chair 2 (patient) -->
+  <g fill="url(#therapyGradient)" stroke="#fff" stroke-width="2">
+    <rect x="210" y="180" width="60" height="80" rx="10" opacity="0.8"/>
+    <rect x="200" y="160" width="80" height="25" rx="12" opacity="0.8"/>
+    <!-- Chair legs -->
+    <rect x="215" y="260" width="6" height="30" rx="3"/>
+    <rect x="259" y="260" width="6" height="30" rx="3"/>
+  </g>
+  
+  <!-- Person 1 (therapist) -->
+  <g fill="rgba(255,255,255,0.8)">
+    <!-- Head -->
+    <circle cx="110" cy="140" r="18"/>
+    <!-- Body -->
+    <rect x="100" y="155" width="20" height="30" rx="10"/>
+    <!-- Arms -->
+    <rect x="85" y="160" width="12" height="3" rx="1.5"/>
+    <rect x="123" y="160" width="12" height="3" rx="1.5"/>
+    <!-- Notebook -->
+    <rect x="125" y="155" width="8" height="10" rx="1" fill="#fff" stroke="#333" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Person 2 (patient) -->
+  <g fill="rgba(255,255,255,0.8)">
+    <!-- Head -->
+    <circle cx="240" cy="140" r="18"/>
+    <!-- Body -->
+    <rect x="230" y="155" width="20" height="30" rx="10"/>
+    <!-- Arms -->
+    <rect x="215" y="160" width="12" height="3" rx="1.5"/>
+    <rect x="253" y="160" width="12" height="3" rx="1.5"/>
+  </g>
+  
+  <!-- Conversation bubbles -->
+  <g fill="rgba(255,255,255,0.9)" stroke="#ccc" stroke-width="1">
+    <!-- Therapist speech bubble -->
+    <ellipse cx="130" cy="100" rx="25" ry="15">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <polygon points="115,115 120,120 125,115" fill="rgba(255,255,255,0.9)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Patient speech bubble -->
+    <ellipse cx="220" cy="100" rx="30" ry="18">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <polygon points="235,118 240,123 245,118" fill="rgba(255,255,255,0.9)">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="4.5s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <!-- Healing hearts -->
+  <g fill="url(#heartGradient)">
+    <path d="M175 80 C 175 75, 180 70, 185 70 C 190 70, 195 75, 195 80 C 195 85, 185 95, 175 80 Z" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M160 120 C 160 117, 163 115, 166 115 C 169 115, 172 117, 172 120 C 172 123, 166 130, 160 120 Z" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-8; 0,0" dur="3.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M200 50 C 200 47, 203 45, 206 45 C 209 45, 212 47, 212 50 C 212 53, 206 60, 200 50 Z" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-12; 0,0" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Positive energy waves -->
+  <g stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="none">
+    <circle cx="175" cy="150" r="30">
+      <animate attributeName="r" values="30;50;30" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="175" cy="150" r="50">
+      <animate attributeName="r" values="50;80;50" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Emotional connection line -->
+  <g stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none">
+    <path d="M110 140 Q 175 120, 240 140">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Empathy symbols -->
+  <g fill="rgba(255,255,255,0.7)">
+    <circle cx="150" cy="130" r="2">
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="170" cy="125" r="1.5">
+      <animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190" cy="130" r="2">
+      <animate attributeName="opacity" values="0;1;0" dur="1.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Growth symbols -->
+  <g fill="rgba(102, 126, 234, 0.6)">
+    <!-- Plant/growth symbol -->
+    <path d="M175 300 Q 175 290, 175 280 Q 170 275, 165 280 Q 175 285, 175 280 Q 180 275, 185 280 Q 175 285, 175 280">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <!-- Roots -->
+    <path d="M175 300 Q 170 305, 165 310 M175 300 Q 180 305, 185 310" stroke="rgba(102, 126, 234, 0.6)" stroke-width="1" fill="none">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Comfort zone expansion -->
+  <g stroke="rgba(255, 107, 107, 0.4)" stroke-width="1" fill="none">
+    <ellipse cx="175" cy="200" rx="40" ry="20">
+      <animate attributeName="rx" values="40;60;40" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="20;30;20" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="175" cy="200" rx="60" ry="30">
+      <animate attributeName="rx" values="60;90;60" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="30;45;30" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  
+  <!-- Mindfulness symbols -->
+  <g fill="rgba(255,255,255,0.5)" font-size="16" font-family="Arial">
+    <text x="80" y="50" opacity="0.8">🧘</text>
+    <text x="260" y="50" opacity="0.8">🌱</text>
+    <text x="175" y="30" opacity="0.8">✨</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <g fill="rgba(255,255,255,0.8)" font-size="12" font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="175" y="330" opacity="0.9">Sanación • Crecimiento • Bienestar</text>
+  </g>
+</svg>

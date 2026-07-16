@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neuromindatlas.vercel.app/sitemap.xml

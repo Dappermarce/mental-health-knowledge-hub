@@ -1,0 +1,3525 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 10000;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background: #111827;
+    color: #fff;
+    transform: translateY(-180%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 3px;
+}
+
+.stat-number.stat-text {
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    line-height: 1.2;
+}
+
+.evidence-note {
+    margin: 1rem 0;
+    padding: 0.9rem 1rem;
+    border-left: 4px solid #667eea;
+    border-radius: 0 0.6rem 0.6rem 0;
+    background: #f5f7ff;
+    color: #374151;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.section-references,
+.section-references li,
+.methodology-note,
+.methodology-note li {
+    font-size: max(0.9rem, 14px);
+    line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+img, svg, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #6c5ce7;
+}
+
+.nav-logo i {
+    font-size: 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #6c5ce7;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6c5ce7;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #6c5ce7;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* Language toggle */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    padding: 0.35rem 0.85rem;
+    margin-left: 1rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle:hover {
+    border-color: #6c5ce7;
+    color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.lang-toggle i {
+    font-size: 0.95rem;
+}
+
+.dark-theme .lang-toggle {
+    border-color: #444;
+    color: #e9ecef;
+}
+
+.dark-theme .lang-toggle:hover {
+    border-color: #6c5ce7;
+    color: #a29bfe;
+    background: rgba(108, 92, 231, 0.15);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="400" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="500" cy="500" r="300" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="500" cy="500" r="200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: clamp(7rem, 12vh, 8rem) 20px clamp(2.5rem, 6vh, 4rem);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+}
+
+.btn-accent:hover {
+    background: linear-gradient(135deg, #ff5252, #ff7a7a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-brain {
+    width: 300px;
+    height: 300px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.floating-therapy {
+    width: 200px;
+    height: 200px;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out 0.9s both;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    min-width: 0;
+    height: 100%;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.5rem;
+}
+
+/* ¿Sabías que...? Banner */
+.sabias-que-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #4f5fb8 0%, #58408f 100%);
+    backdrop-filter: blur(8px);
+    padding: 0.9rem 0;
+    position: static;
+    z-index: 2;
+}
+
+.sabias-que-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.sabias-tag {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.sabias-text {
+    color: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
+    max-width: 700px;
+}
+
+.hero-scroll {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: -1.5rem auto 1rem;
+    animation: bounce 2s infinite;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Educational Disclaimer */
+.educational-disclaimer {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    color: #856404;
+}
+
+.author-note {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f4f7ff 0%, #ffffff 52%, #eef8ff 100%);
+}
+
+.author-note-card {
+    border: 1px solid #dce5ff;
+    border-radius: 1.5rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 50px rgba(23, 37, 84, 0.08);
+}
+
+.author-note-eyebrow {
+    margin-bottom: 0.75rem;
+    color: #3658c7;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.author-note h2 {
+    margin-bottom: 1.25rem;
+    color: #172554;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+}
+
+.author-note-card > p:not(.author-note-eyebrow):not(.author-note-signature) {
+    max-width: 72ch;
+    margin-bottom: 1rem;
+    color: #334155;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.author-note-signature {
+    margin: 1.25rem 0 1.75rem;
+    color: #3658c7;
+    font-weight: 700;
+}
+
+.author-principles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.author-principles div {
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.author-principles strong,
+.author-principles span {
+    display: block;
+}
+
+.author-principles strong {
+    margin-bottom: 0.35rem;
+    color: #172554;
+}
+
+.author-principles span {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+    .author-principles {
+        grid-template-columns: 1fr;
+    }
+}
+
+.educational-disclaimer .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.educational-disclaimer i {
+    color: #ffc107;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+    position: relative;
+    scroll-margin-top: 90px;
+}
+
+.section:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.05rem;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+}
+
+/* Reading time indicator */
+.reading-time {
+    text-align: center;
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0.75rem auto 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.reading-time i {
+    color: #6c5ce7;
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #6c5ce7;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timeline-item:nth-child(odd) {
+    text-align: right;
+    padding-right: 52%;
+}
+
+.timeline-item:nth-child(even) {
+    text-align: left;
+    padding-left: 52%;
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    position: absolute;
+    top: 0;
+    width: 110px;
+    height: 40px;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::before {
+    right: calc(50% - 55px);
+    transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even)::before {
+    left: calc(50% - 55px);
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-era {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.03em;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.timeline-content p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-details {
+    margin: 0.75rem 0 0.75rem 1.2rem;
+    color: #555;
+}
+
+.timeline-details li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+.timeline-influence {
+    background: #f0f0ff;
+    border-left: 3px solid #6c5ce7;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+    color: #444;
+    margin-top: 0.75rem;
+}
+
+.timeline-influence a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.timeline-influence a:hover { text-decoration: underline; }
+
+/* Section References */
+.section-references {
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+}
+
+.section-references h4 {
+    font-size: 1rem;
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-references ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-references ul li {
+    font-size: 0.88rem;
+    color: #555;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+}
+
+.section-references ul li:last-child { border-bottom: none; }
+
+/* Branches Grid */
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.branch-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.branch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.branch-card:hover::before {
+    transform: scaleX(1);
+}
+
+.branch-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.branch-icon {
+    font-size: 3rem;
+    color: #6c5ce7;
+    margin-bottom: 1rem;
+}
+
+.branch-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.branch-card > p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Branch extra detail (hidden by default on hover) */
+.branch-extra {
+    margin-top: 1rem;
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+    display: none;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.branch-card:hover .branch-extra {
+    display: block;
+}
+
+.branch-extra p {
+    margin-bottom: 0.4rem;
+}
+
+.branch-extra a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.branch-extra a:hover { text-decoration: underline; }
+
+.branch-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.branch-tag {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.branch-popularity {
+    color: #ffd700;
+    font-size: 0.9rem;
+}
+
+/* Branch Filter */
+.branch-filter {
+    margin-top: 3rem;
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.branch-filter h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    background: white;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #6c5ce7;
+    color: #6c5ce7;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #6c5ce7;
+    color: white;
+    border-color: #6c5ce7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+.branch-card.hidden {
+    display: none;
+}
+
+/* Psychologists Grid */
+.psychologists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.psychologist-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.psychologist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.psychologist-image {
+    font-size: 4rem;
+    color: #6c5ce7;
+    margin-bottom: 1rem;
+}
+
+.psychologist-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.psychologist-years {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.psychologist-contribution {
+    color: #6c5ce7;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.psychologist-card > p:last-of-type {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.pioneer-details {
+    text-align: left;
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+    font-size: 0.87rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.pioneer-details p {
+    margin-bottom: 0.5rem;
+}
+
+.cross-links {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: #888;
+    text-align: left;
+}
+
+.cross-links a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 0.4rem;
+}
+
+.cross-links a:hover { text-decoration: underline; }
+
+/* Psychiatry Section */
+.psychiatry-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.psychiatry-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.psychiatry-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.comparison-table {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.comparison-table h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.comparison-table th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.7rem 1rem;
+    text-align: left;
+}
+
+.comparison-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #e9ecef;
+    color: #444;
+}
+
+.comparison-table tr:nth-child(even) td {
+    background: #f8f9fa;
+}
+
+.neurotransmitter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0;
+}
+
+.neurotransmitter-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.neurotransmitter-list li:last-child { border-bottom: none; }
+
+.area-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.75rem;
+    font-size: 0.88rem;
+}
+
+.area-list li {
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.area-list li:last-child { border-bottom: none; }
+
+.psychiatry-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.area-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #764ba2;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.area-icon {
+    font-size: 2.5rem;
+    color: #764ba2;
+    margin-bottom: 1rem;
+}
+
+.area-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.area-card > p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.92rem;
+}
+
+/* Disorders Section */
+.disorders-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.disorders-intro p {
+    font-size: 1rem;
+    color: #555;
+    max-width: 850px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.disorders-categories {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    min-width: 140px;
+    font-size: 0.88rem;
+}
+
+.tab-button:hover {
+    background: rgba(108, 92, 231, 0.1);
+    color: #6c5ce7;
+}
+
+.tab-button.active {
+    background: #6c5ce7;
+    color: white;
+    border-bottom-color: #ff6b6b;
+}
+
+.disorders-content {
+    padding: 2rem;
+}
+
+.disorder-category {
+    display: none;
+}
+
+.disorder-category.active {
+    display: block;
+}
+
+.disorders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.disorder-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border-left: 5px solid #ff6b6b;
+}
+
+.disorder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.disorder-icon {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.disorder-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.disorder-card > p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+}
+
+.disorder-detail {
+    font-size: 0.87rem;
+    color: #555;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+}
+
+.disorder-detail p {
+    margin-bottom: 0.5rem;
+}
+
+.disorder-detail ul {
+    padding-left: 1.2rem;
+    margin: 0.3rem 0;
+}
+
+.disorder-detail li {
+    margin-bottom: 0.3rem;
+}
+
+.disorder-detail a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.disorder-detail a:hover { text-decoration: underline; }
+
+.disorder-stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.prevalence {
+    color: #6c5ce7;
+    font-weight: 600;
+}
+
+.severity {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+/* Mental Health Statistics */
+.mental-health-stats {
+    margin-top: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mental-health-stats h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Concepts Accordion */
+.concepts-accordion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    background: white;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #e9ecef;
+}
+
+.accordion-header.active {
+    background: #6c5ce7;
+    color: white;
+}
+
+.accordion-header h3 {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.accordion-header i {
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active i {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.65;
+}
+
+.accordion-content.active {
+    padding: 2rem;
+    max-height: 1200px;
+}
+
+.accordion-content p {
+    margin-bottom: 0.75rem;
+}
+
+.accordion-content ul {
+    margin: 0.5rem 0 0.75rem 1.5rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.4rem;
+    color: #555;
+}
+
+.accordion-content a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.accordion-content a:hover { text-decoration: underline; }
+
+.concept-reference {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.83rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Books Grid */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.book-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.book-cover {
+    height: 160px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+}
+
+.book-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.book-author {
+    color: #6c5ce7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.book-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+    flex-grow: 1;
+}
+
+.book-search-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #6c5ce7;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 0.88rem;
+    align-self: flex-start;
+}
+
+.book-search-link:hover {
+    background: #6c5ce7;
+    color: white;
+}
+
+/* Interactive Section */
+.interactive-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.interactive-module {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.interactive-module:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.module-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.module-header h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.module-header p {
+    opacity: 0.9;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Personality Test */
+.personality-test {
+    padding: 2rem;
+}
+
+.question-container {
+    margin-bottom: 2rem;
+}
+
+.question {
+    display: none;
+}
+
+.question.active {
+    display: block;
+}
+
+.question h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.answers {
+    display: grid;
+    gap: 1rem;
+}
+
+.answer-btn {
+    padding: 1rem 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.answer-btn:hover {
+    border-color: #6c5ce7;
+    background: #f8f9ff;
+    transform: translateX(5px);
+}
+
+.answer-btn.selected {
+    border-color: #6c5ce7;
+    background: #6c5ce7;
+    color: white;
+}
+
+.test-progress {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    width: 33%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.test-disclaimer {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-content {
+    margin: 2rem 0;
+}
+
+.personality-trait {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.trait-name {
+    flex: 0 0 150px;
+    font-weight: 600;
+    color: #333;
+}
+
+.trait-bar {
+    flex: 1;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.trait-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.trait-value {
+    flex: 0 0 50px;
+    text-align: right;
+    font-weight: 600;
+    color: #6c5ce7;
+}
+
+/* Mood Tracker */
+.mood-tracker {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.mood-input h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.mood-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+
+.mood-btn {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #e9ecef;
+    border-radius: 50%;
+    background: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mood-btn:hover {
+    transform: scale(1.1);
+    border-color: #6c5ce7;
+}
+
+.mood-btn.selected {
+    border-color: #6c5ce7;
+    background: #f8f9ff;
+    transform: scale(1.15);
+}
+
+.mood-note textarea {
+    width: 100%;
+    min-height: 100px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.mood-note textarea:focus {
+    outline: none;
+    border-color: #6c5ce7;
+}
+
+.mood-chart h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.mood-insights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.insight {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.insight-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.insight-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #6c5ce7;
+}
+
+/* Psychology Quiz */
+.psychology-quiz {
+    padding: 2rem;
+}
+
+.quiz-question h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-option {
+    padding: 1rem 1.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.quiz-option:hover {
+    border-color: #6c5ce7;
+    background: #f8f9ff;
+}
+
+.quiz-option.correct {
+    border-color: #51cf66;
+    background: #51cf66;
+    color: white;
+}
+
+.quiz-option.wrong {
+    border-color: #ff6b6b;
+    background: #ff6b6b;
+    color: white;
+}
+
+.quiz-option.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.result-feedback {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-stats {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #333;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Search functionality */
+.search-container {
+    position: relative;
+    margin-left: 2rem;
+}
+
+.search-container input {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    background: white;
+    color: #333;
+    font-family: inherit;
+    font-size: 0.9rem;
+    width: 230px;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+}
+
+.search-item {
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background 0.3s ease;
+}
+
+.search-item:hover {
+    background: #f8f9fa;
+}
+
+.search-item:last-child {
+    border-bottom: none;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    background: none;
+    border: 2px solid #e9ecef;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    color: #666;
+}
+
+.theme-toggle:hover {
+    border-color: #6c5ce7;
+    color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.1);
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #e9ecef;
+}
+
+.dark-theme .header {
+    background: rgba(26, 26, 26, 0.95);
+}
+
+.dark-theme .nav-link {
+    color: #e9ecef;
+}
+
+.dark-theme .section:nth-child(even) {
+    background: #2d2d2d;
+}
+
+.dark-theme .section {
+    background: #1a1a1a;
+}
+
+.dark-theme .branch-card,
+.dark-theme .psychologist-card,
+.dark-theme .book-card,
+.dark-theme .area-card,
+.dark-theme .disorder-card,
+.dark-theme .interactive-module,
+.dark-theme .branch-filter,
+.dark-theme .accordion-item,
+.dark-theme .mental-health-stats {
+    background: #2d2d2d;
+    color: #e9ecef;
+}
+
+.dark-theme .branch-card h3,
+.dark-theme .psychologist-card h3,
+.dark-theme .book-card h3,
+.dark-theme .area-card h4,
+.dark-theme .disorder-card h4 {
+    color: #e9ecef;
+}
+
+.dark-theme .timeline-content {
+    background: #2d2d2d;
+    color: #e9ecef;
+}
+
+.dark-theme .timeline-content h3 {
+    color: #e9ecef;
+}
+
+.dark-theme .timeline-influence {
+    background: #3d3d5c;
+}
+
+.dark-theme .accordion-header {
+    background: #3d3d3d;
+    color: #e9ecef;
+}
+
+.dark-theme .accordion-header:hover {
+    background: #4d4d4d;
+}
+
+.dark-theme .disorders-categories {
+    background: #2d2d2d;
+}
+
+.dark-theme .category-tabs {
+    background: #3d3d3d;
+}
+
+.dark-theme .tab-button {
+    color: #e9ecef;
+}
+
+.dark-theme .search-container input {
+    background: #2d2d2d;
+    color: #e9ecef;
+    border-color: #4d4d4d;
+}
+
+.dark-theme .search-results {
+    background: #2d2d2d;
+    border-color: #4d4d4d;
+}
+
+.dark-theme .search-item {
+    color: #e9ecef;
+    border-bottom-color: #4d4d4d;
+}
+
+.dark-theme .search-item:hover {
+    background: #3d3d3d;
+}
+
+.dark-theme .theme-toggle {
+    color: #e9ecef;
+    border-color: #4d4d4d;
+}
+
+.dark-theme .footer {
+    background: #0d1117;
+}
+
+.dark-theme .educational-disclaimer {
+    background: #3d3200;
+    border-left-color: #ffc107;
+    color: #ffd060;
+}
+
+.dark-theme .methodology-note,
+.dark-theme .faq-item {
+    background: #2d2d2d;
+    border-color: #4d4d4d;
+    color: #e9ecef;
+}
+
+.dark-theme .section-references {
+    background: #2d2d2d;
+    border-color: #4d4d4d;
+}
+
+.dark-theme .sabias-que-banner {
+    background: rgba(0,0,0,0.5);
+}
+
+/* Contact/Resources Section */
+.resource-card-link {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.resource-card-link:hover {
+    transform: translateY(-3px);
+}
+.resource-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    height: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.resource-card-link:hover .resource-card-item {
+    border-color: #667eea;
+    box-shadow: 0 4px 16px rgba(102,126,234,0.15);
+}
+.resource-card-item > .fas {
+    margin-top: 3px;
+    font-size: 0.85rem;
+    color: #667eea;
+    flex-shrink: 0;
+}
+.resource-card-item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.resource-card-item strong {
+    font-size: 0.92rem;
+    color: #2d3748;
+    line-height: 1.35;
+}
+.resource-card-item span {
+    font-size: 0.78rem;
+    color: #718096;
+}
+.resource-category h3 i {
+    font-size: 1.1rem;
+}
+
+/* Methodology Note */
+.methodology-note {
+    background: #f0f7ff;
+    border: 1px solid #bee3f8;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.methodology-note h3 {
+    font-size: 1.2rem;
+    color: #2b6cb0;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.methodology-note p {
+    color: #444;
+    font-size: 0.92rem;
+    margin-bottom: 0.75rem;
+}
+
+.methodology-note ul {
+    padding-left: 1.5rem;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.methodology-note li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-bottom: 3rem;
+}
+
+.faq-section h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-item h4 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.faq-item p {
+    color: #555;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.faq-item a {
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.faq-item a:hover { text-decoration: underline; }
+
+/* Footer */
+.footer {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: #6c5ce7;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    color: #6c5ce7;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+.creator-signature {
+    font-style: italic;
+    color: #95a5a6;
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading animations */
+.loading-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .psychiatry-intro {
+        grid-template-columns: 1fr;
+    }
+    .mood-tracker {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .timeline-item:nth-child(odd) {
+        padding-right: 55%;
+    }
+    .timeline-item:nth-child(even) {
+        padding-left: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        padding: 0.75rem 1rem 0;
+    }
+
+    .nav-menu {
+        position: static;
+        top: auto;
+        width: 100%;
+        background: transparent;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0.6rem 0;
+        margin-top: 0.5rem;
+        gap: 1.5rem;
+        transform: none;
+        box-shadow: none;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .nav-menu::-webkit-scrollbar-thumb {
+        background: rgba(108, 92, 231, 0.3);
+        border-radius: 4px;
+    }
+
+    .nav-menu li {
+        flex: 0 0 auto;
+    }
+
+    .nav-link {
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .lang-toggle {
+        margin-left: 0.5rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .lang-toggle .lang-toggle-text {
+        display: none;
+    }
+
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    .section {
+        scroll-margin-top: 110px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-bottom: 30px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.25rem;
+        padding-top: 115px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .floating-brain {
+        width: 140px;
+        height: 140px;
+    }
+
+    .floating-therapy {
+        width: 140px;
+        height: 140px;
+    }
+
+    .psychiatry-intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .mood-tracker {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .mood-options {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .personality-trait {
+        flex-wrap: wrap;
+    }
+
+    .trait-name {
+        flex: 0 0 100%;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        text-align: left;
+        padding-right: 0;
+        padding-left: 60px;
+    }
+
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: 0;
+        right: auto;
+        transform: none;
+        width: 54px;
+        height: 30px;
+        font-size: 0.65rem;
+    }
+
+    .timeline-content {
+        padding: 1.25rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.05rem;
+    }
+
+    .branches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .psychologists-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .accordion-header {
+        padding: 1rem 1.5rem;
+    }
+
+    .accordion-content.active {
+        padding: 1.5rem;
+    }
+
+    .stat-item {
+        min-width: 90px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* =============================================================
+   RESPONSIVE IMPROVEMENTS — v2
+   Appended block; later rules override earlier declarations.
+   Covers: tablet (769–1024px), mobile (≤768px),
+           small-mobile (≤480px), ultra-small (≤360px)
+   ============================================================= */
+
+/* ── Tablet: 769 – 1024 px ────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-container {
+        gap: 2rem;
+        padding-top: 110px;
+    }
+    .hero-title { font-size: 2.6rem; }
+    .hero-subtitle { font-size: 1.05rem; }
+    .floating-brain { width: 200px; height: 200px; }
+    .floating-therapy { width: 160px; height: 160px; }
+
+    .nav-menu { gap: 1.2rem; }
+    .nav-logo { font-size: 1.2rem; }
+    .nav-logo i { font-size: 1.6rem; }
+
+    .section-title { font-size: 2.1rem; }
+
+    .branches-grid     { grid-template-columns: repeat(2, 1fr); }
+    .psychologists-grid{ grid-template-columns: repeat(2, 1fr); }
+    .books-grid        { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid          { grid-template-columns: repeat(2, 1fr); }
+    .disorders-grid    { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid        { grid-template-columns: repeat(2, 1fr); }
+
+    .psychiatry-intro  { grid-template-columns: 1fr; }
+    .mood-tracker      { grid-template-columns: 1fr; gap: 2rem; }
+
+    .timeline-item:nth-child(odd)  { padding-right: 53%; }
+    .timeline-item:nth-child(even) { padding-left:  53%; }
+}
+
+/* ── Mobile: ≤ 768 px ─────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* 1. Kill scroll-snap — too jarring on touch */
+    html { scroll-snap-type: none !important; }
+    .section  { scroll-snap-align: unset !important; scroll-snap-stop: unset !important; }
+    .hero     { scroll-snap-align: unset !important; scroll-snap-stop: unset !important; }
+
+    /* 2. Nav — real hamburger menu */
+    .nav-container {
+        position: relative;
+        flex-wrap: nowrap;
+        padding: 0.85rem 1.25rem;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #6c5ce7;
+        cursor: pointer;
+        order: 2;
+        margin-left: auto;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .nav-menu {
+        /* override the always-visible scrollable row */
+        display: none !important;
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        padding: 0.5rem 0 1rem !important;
+        gap: 0 !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14) !important;
+        z-index: 1200 !important;
+        overflow-x: visible !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 70px) !important;
+        order: unset !important;
+        flex-basis: auto !important;
+        margin-top: 0 !important;
+        border-top: 2px solid #e9ecef !important;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        transform: none !important;
+    }
+
+    /* Show when JS adds .active */
+    .nav-menu.active {
+        display: flex !important;
+    }
+
+    .nav-menu li { flex: unset !important; width: 100%; }
+
+    .nav-link {
+        display: block !important;
+        white-space: normal !important;
+        padding: 0.85rem 1.75rem !important;
+        font-size: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-link:last-child { border-bottom: none; }
+
+    .nav-logo span { font-size: 1.1rem; }
+    .nav-logo i    { font-size: 1.6rem; }
+
+    /* Dark theme nav */
+    .dark-theme .nav-menu {
+        background: rgba(30, 30, 30, 0.98) !important;
+        border-top-color: #3d3d3d !important;
+    }
+    .dark-theme .nav-link { border-bottom-color: #3d3d3d; }
+
+    /* 3. Hero */
+    .hero { min-height: auto; padding-bottom: 2rem; }
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 1.25rem;
+        padding-top: 100px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .hero-title    { font-size: 1.95rem; line-height: 1.25; }
+    .hero-subtitle { font-size: 1rem; margin-bottom: 1.25rem; }
+    .hero-buttons  {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+    }
+    .hero-buttons .btn { text-align: center; padding: 0.8rem 1.5rem; }
+    .hero-image { order: -1; }
+    .floating-brain   { width: 130px; height: 130px; }
+    .floating-therapy { width: 110px; height: 110px; }
+    .hero-stats { justify-content: center; gap: 0.65rem; }
+    .stat-item  { min-width: 75px; padding: 0.75rem 0.6rem; }
+    .stat-number { font-size: 1.5rem; }
+    .stat-label  { font-size: 0.75rem; }
+    .hero-scroll { display: none; }
+
+    /* 4. Global section */
+    .section { padding: 2.75rem 0; scroll-margin-top: 80px; }
+    .section-title    { font-size: 1.85rem; }
+    .section-subtitle { font-size: 0.95rem; }
+    .container { padding: 0 1rem; }
+
+    /* 5. Sabías que banner */
+    .sabias-que-inner { gap: 0.5rem; padding: 0 1rem; flex-wrap: wrap; }
+    .sabias-tag  { font-size: 0.8rem; }
+    .sabias-text { font-size: 0.88rem; max-width: 100%; }
+
+    /* 6. Educational disclaimer */
+    .educational-disclaimer .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        font-size: 0.83rem;
+    }
+
+    /* 7. Disorder tabs — horizontal scroll, smaller text */
+    .category-tabs {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: thin;
+    }
+    .category-tabs::-webkit-scrollbar { height: 3px; }
+    .category-tabs::-webkit-scrollbar-thumb {
+        background: rgba(108, 92, 231, 0.35);
+        border-radius: 3px;
+    }
+    .tab-button {
+        flex: 0 0 auto !important;
+        min-width: 0 !important;
+        white-space: nowrap;
+        font-size: 0.78rem;
+        padding: 0.75rem 0.9rem;
+    }
+    .disorders-content { padding: 1.25rem 1rem; }
+    .disorders-grid    { grid-template-columns: 1fr; }
+    .disorder-card     { padding: 1.25rem; }
+    .disorder-stats    { flex-direction: column; gap: 0.3rem; }
+
+    /* 8. Timeline — single column */
+    .timeline::before  { left: 18px !important; transform: none; }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        text-align: left !important;
+        padding-left: 52px !important;
+        padding-right: 0 !important;
+    }
+    .timeline-item:nth-child(odd)::before,
+    .timeline-item:nth-child(even)::before {
+        left: -2px !important; right: auto !important;
+        transform: none !important;
+        width: 46px !important; height: 26px !important;
+        font-size: 0.6rem !important;
+        border-radius: 14px !important;
+    }
+    .timeline-content { padding: 1.1rem; }
+    .timeline-content h3 { font-size: 1.05rem; }
+
+    /* 9. Accordion */
+    .accordion-header   { padding: 1rem 1.25rem; }
+    .accordion-header h3 { font-size: 1rem; }
+    .accordion-content.active { padding: 1.25rem; max-height: 2000px; }
+
+    /* 10. Grids → 1 col */
+    .branches-grid      { grid-template-columns: 1fr; }
+    .psychologists-grid { grid-template-columns: 1fr; }
+    .books-grid         { grid-template-columns: 1fr; }
+    .faq-grid           { grid-template-columns: 1fr; }
+    .stats-grid         { grid-template-columns: repeat(2, 1fr); }
+    .footer-content     { grid-template-columns: 1fr; text-align: center; }
+
+    /* 11. Mood tracker */
+    .mood-tracker   { padding: 1.25rem; grid-template-columns: 1fr; gap: 1.75rem; }
+    .mood-options   { gap: 0.5rem; }
+    .mood-btn       { width: 48px; height: 48px; font-size: 1.5rem; }
+    .mood-insights  { grid-template-columns: 1fr 1fr; }
+
+    /* 12. Psychiatry */
+    .psychiatry-intro { grid-template-columns: 1fr; text-align: left; }
+    .psychiatry-content h3 { font-size: 1.4rem; }
+    .comparison-table th, .comparison-table td { padding: 0.5rem 0.65rem; }
+
+    /* 13. Filter buttons */
+    .filter-buttons { gap: 0.5rem; }
+    .filter-btn     { padding: 0.6rem 1rem; font-size: 0.85rem; }
+    .branch-filter  { padding: 1.5rem 1.25rem; }
+
+    /* 14. Resources */
+    .methodology-note { padding: 1.1rem 1.25rem; }
+    .resource-card-item { padding: 0.85rem 1rem; }
+
+    /* 15. Interactive */
+    .personality-test, .psychology-quiz { padding: 1.25rem; }
+    .module-header { padding: 1.5rem; }
+    .module-header h3 { font-size: 1.3rem; }
+
+    /* 16. Search hidden on mobile */
+    .search-container { display: none !important; }
+}
+
+/* ── Small mobile: ≤ 480 px ───────────────────────────────── */
+@media (max-width: 480px) {
+    .hero-title    { font-size: 1.6rem; }
+    .hero-subtitle { font-size: 0.9rem; }
+    .section       { padding: 2.25rem 0; }
+    .section-title { font-size: 1.65rem; }
+
+    .nav-logo span { font-size: 0.95rem; }
+    .nav-logo i    { font-size: 1.4rem; }
+
+    .stat-item   { min-width: 68px; }
+    .stat-number { font-size: 1.25rem; }
+    .stat-label  { font-size: 0.7rem; }
+
+    .accordion-header    { padding: 0.9rem 1rem; }
+    .accordion-header h3 { font-size: 0.93rem; }
+    .accordion-content.active { padding: 1rem; }
+
+    .disorder-card    { padding: 1.1rem; }
+    .branch-card      { padding: 1.4rem 1.1rem; }
+    .psychologist-card{ padding: 1.4rem 1.1rem; }
+
+    .tab-button { font-size: 0.72rem; padding: 0.65rem 0.6rem; }
+
+    .module-header { padding: 1.25rem 1rem; }
+    .module-header h3 { font-size: 1.15rem; }
+    .personality-test, .psychology-quiz { padding: 1rem; }
+    .question h4, .quiz-question h4 { font-size: 1.05rem; }
+    .answer-btn, .quiz-option { padding: 0.8rem 1rem; font-size: 0.88rem; }
+
+    .sabias-tag  { font-size: 0.75rem; padding: 0.25rem 0.7rem; }
+    .sabias-text { font-size: 0.8rem; }
+
+    .stats-grid     { grid-template-columns: 1fr; }
+    .mood-insights  { grid-template-columns: 1fr; }
+    .mood-options   { justify-content: space-around; }
+    .mood-btn       { width: 44px; height: 44px; font-size: 1.35rem; }
+
+    .timeline-content { padding: 0.9rem; }
+    .timeline-content h3 { font-size: 0.97rem; }
+
+    .section-references { padding: 1rem 1.1rem; }
+    .faq-item      { padding: 0.9rem 1rem; }
+    .methodology-note { padding: 0.85rem 1rem; }
+
+    .reading-time  { font-size: 0.78rem; }
+    .btn           { padding: 0.8rem 1.3rem; font-size: 0.93rem; }
+    .filter-btn    { font-size: 0.8rem; padding: 0.5rem 0.85rem; }
+    .disorders-content { padding: 0.9rem 0.85rem; }
+    .branch-filter { padding: 1rem; }
+    .book-cover    { height: 120px; font-size: 3rem; }
+    .book-info     { padding: 1.1rem; }
+
+    .hero-buttons .btn { font-size: 0.92rem; }
+    .hero-stats { gap: 0.5rem; }
+}
+
+/* ── Ultra-small: ≤ 360 px ────────────────────────────────── */
+@media (max-width: 360px) {
+    .hero-title    { font-size: 1.4rem; }
+    .hero-subtitle { font-size: 0.85rem; }
+    .hero-container { padding-top: 90px; padding-left: 0.75rem; padding-right: 0.75rem; }
+    .section-title { font-size: 1.5rem; }
+    .container     { padding: 0 0.75rem; }
+
+    .nav-logo span { font-size: 0.88rem; }
+    .nav-logo i    { font-size: 1.3rem; }
+
+    .btn      { padding: 0.7rem 1rem; font-size: 0.87rem; }
+    .stat-number { font-size: 1.05rem; }
+    .stat-item   { min-width: 60px; padding: 0.6rem 0.4rem; }
+    .stat-label  { font-size: 0.65rem; }
+
+    .tab-button { font-size: 0.67rem; padding: 0.55rem 0.4rem; }
+
+    .disorder-card, .branch-card, .psychologist-card { padding: 0.9rem; }
+    .accordion-header h3 { font-size: 0.87rem; }
+    .accordion-header    { padding: 0.8rem 0.9rem; }
+    .reading-time { font-size: 0.72rem; }
+
+    .floating-brain   { width: 100px; height: 100px; }
+    .floating-therapy { width: 85px; height: 85px; }
+
+    .sabias-text { font-size: 0.75rem; }
+    .timeline-content { padding: 0.75rem; }
+    .filter-btn { font-size: 0.75rem; padding: 0.45rem 0.75rem; }
+
+    .section { padding: 2rem 0; }
+    .book-cover { height: 100px; font-size: 2.5rem; }
+    .mood-btn { width: 38px; height: 38px; font-size: 1.15rem; }
+}
+
+/* =====================================================
+   NUEVAS CLASES — Historia: tensiones conceptuales
+   ===================================================== */
+.tensions-section {
+    margin: 2.5rem 0;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-radius: 14px;
+    padding: 2rem;
+}
+.tensions-section h3 {
+    font-size: 1.35rem;
+    color: #2c3a7a;
+    margin-bottom: 0.5rem;
+}
+.tensions-section > p {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+.tensions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+}
+.tension-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(60,80,180,0.08);
+    border-left: 4px solid #4a6cf7;
+}
+.tension-card h4 {
+    font-size: 1rem;
+    color: #2c3a7a;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.tension-poles {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.tension-poles span:first-child { color: #2980b9; }
+.tension-poles span:last-child  { color: #8e44ad; }
+.tension-stages {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+}
+.tstage {
+    background: #e8edff;
+    color: #3b5bd4;
+    border-radius: 20px;
+    padding: 0.18rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.tension-card p {
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* Mapa de paradigmas */
+.paradigm-map {
+    margin: 2.5rem 0;
+    background: linear-gradient(135deg, #fdf6e3 0%, #fef9f0 100%);
+    border-radius: 14px;
+    padding: 2rem;
+}
+.paradigm-map h3 { font-size: 1.25rem; color: #6b4226; margin-bottom: 0.6rem; }
+.paradigm-map > p { color: #7a6040; margin-bottom: 1.5rem; font-size: 0.9rem; }
+.paradigm-hint {
+    text-align: center;
+    color: #a17a3f;
+    font-size: 0.82rem;
+    margin: 0 0 1rem;
+}
+.paradigm-hint i { margin-right: 0.35rem; }
+
+/* Leyenda */
+.paradigm-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.8rem;
+    font-size: 0.78rem;
+    color: #6b4226;
+}
+.pl-item { display: flex; align-items: center; gap: 0.5rem; }
+.pl-swatch { display: inline-block; }
+.pl-swatch.pl-line { width: 26px; height: 3px; background: #e6a030; border-radius: 2px; }
+.pl-swatch.pl-branch { width: 26px; height: 0; border-top: 3px dashed #e6a030; }
+.pl-swatch.pl-coexist { display: inline-flex; gap: 3px; }
+.pl-swatch.pl-coexist i { width: 10px; height: 10px; background: #e6a030; border-radius: 2px; display: inline-block; }
+
+.paradigm-section-label {
+    align-self: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a17a3f;
+    background: rgba(230,160,48,0.12);
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    margin: 0.3rem 0 0.2rem;
+}
+
+.paradigm-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+}
+.paradigm-node {
+    background: white;
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    min-width: 160px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(120,80,20,0.1);
+    border-top: 4px solid #e6a030;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.paradigm-node:hover,
+.paradigm-node:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(120,80,20,0.2);
+    outline: none;
+}
+.paradigm-node.is-active {
+    box-shadow: 0 0 0 3px #e6a030, 0 6px 16px rgba(120,80,20,0.2);
+}
+.paradigm-node i { font-size: 1.3rem; color: #e6a030; }
+.paradigm-node strong { display: block; font-size: 0.9rem; color: #4a2f00; }
+.paradigm-node span   { font-size: 0.92rem; font-weight: 600; color: #4a2f00; }
+.paradigm-node small  { font-size: 0.75rem; color: #7a6040; margin-top: 0.1rem; line-height: 1.4; }
+.paradigm-split {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1.6rem;
+    padding-top: 22px;
+}
+.paradigm-split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18%;
+    right: 18%;
+    height: 0;
+    border-top: 2px dashed #e6a030;
+    opacity: 0.7;
+}
+.paradigm-split .paradigm-node {
+    position: relative;
+}
+.paradigm-split .paradigm-node::before {
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    width: 0;
+    height: 22px;
+    border-left: 2px dashed #e6a030;
+    transform: translateX(-50%);
+}
+.paradigm-arrow {
+    position: relative;
+    width: 4px;
+    min-height: 30px;
+    background: #e6a030;
+    border-radius: 2px;
+    color: transparent;
+    font-size: 0;
+}
+.paradigm-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 11px solid #e6a030;
+}
+
+/* Panel de detalle interactivo */
+.paradigm-detail {
+    position: relative;
+    margin-top: 1.8rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 18px rgba(120,80,20,0.15);
+    border-left: 4px solid #e6a030;
+}
+.paradigm-detail h4 { margin: 0 0 0.7rem; color: #6b4226; font-size: 1.05rem; }
+.paradigm-detail ul { margin: 0; padding-left: 1.2rem; color: #5a4020; font-size: 0.88rem; line-height: 1.7; }
+.paradigm-detail-close {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.9rem;
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #a17a3f;
+    cursor: pointer;
+}
+.paradigm-detail-close:hover { color: #6b4226; }
+
+/* Mapa mente-cerebro-conducta */
+.mind-brain-map {
+    margin: 2.5rem 0;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-radius: 14px;
+    padding: 2rem;
+}
+.mind-brain-map h3 { font-size: 1.25rem; color: #2e7d32; margin-bottom: 1.5rem; }
+.mind-brain-map > p { color: #4a7a4a; margin-bottom: 1.5rem; font-size: 0.9rem; }
+.mbm-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+}
+.mbm-node {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    min-width: 170px;
+    min-height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(30,100,40,0.1);
+    border-top: 4px solid #43a047;
+}
+.mbm-node i { font-size: 1.15rem; color: #43a047; }
+.mbm-node strong { display: block; font-size: 0.9rem; color: #1b5e20; }
+.mbm-node span   { font-size: 0.75rem; color: #4a7a4a; }
+
+/* Niveles biopsicosociales */
+.mbm-level-label {
+    align-self: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    margin: 0.3rem 0 0.2rem;
+}
+.mbm-level-bio    { color: #1565c0; background: rgba(21,101,192,0.12); }
+.mbm-level-psico  { color: #2e7d32; background: rgba(46,125,50,0.12); }
+.mbm-level-social { color: #e65100; background: rgba(230,81,0,0.12); }
+
+.mbm-gene, .mbm-brain { border-top-color: #1e88e5; }
+.mbm-gene i, .mbm-brain i { color: #1e88e5; }
+.mbm-conduct, .mbm-env { border-top-color: #fb8c00; }
+.mbm-conduct i, .mbm-env i { color: #fb8c00; }
+
+/* Grupo Procesos mentales + Emociones (conexión lateral) */
+.mbm-mental-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+.mbm-lateral-connector {
+    width: 32px;
+    height: 0;
+    border-top: 2px dashed #43a047;
+    flex-shrink: 0;
+}
+.mbm-node-lateral {
+    border-top-style: dashed;
+    background: rgba(67,160,71,0.06);
+    min-width: 140px;
+    min-height: 54px;
+    padding: 0.7rem 1.1rem;
+}
+.mbm-note {
+    text-align: center;
+    color: #4a7a4a;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin: 1.6rem 0 0;
+}
+.mbm-note i { margin-right: 0.35rem; }
+.mbm-arrow {
+    position: relative;
+    width: 4px;
+    min-height: 30px;
+    background: #43a047;
+    border-radius: 2px;
+    color: transparent;
+    font-size: 0;
+}
+.mbm-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 11px solid #43a047;
+}
+.mbm-arrow.mbm-feedback {
+    width: auto;
+    min-height: 0;
+    background: none;
+    border-radius: 0;
+    color: #2e7d32;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0;
+}
+.mbm-arrow.mbm-feedback::after {
+    display: none;
+}
+
+/* =====================================================
+   NUEVAS CLASES — Latinoamérica
+   ===================================================== */
+.latam-intro {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2rem;
+}
+.latam-intro h3 {
+    font-size: 1.2rem;
+    color: #2c3a7a;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.latam-intro p {
+    color: #444;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+}
+
+.latam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 2.5rem;
+}
+.latam-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 14px rgba(60,80,180,0.09);
+    border-top: 4px solid #4a6cf7;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.latam-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(60,80,180,0.14);
+}
+.latam-flag {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+.latam-card h4 {
+    font-size: 1.05rem;
+    color: #2c3a7a;
+    margin-bottom: 0.5rem;
+}
+.latam-highlight {
+    background: #e8edff;
+    color: #3b5bd4;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+}
+.latam-card ul {
+    list-style: none;
+    padding: 0;
+}
+.latam-card ul li {
+    font-size: 0.83rem;
+    color: #444;
+    line-height: 1.6;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #f0f2ff;
+}
+.latam-card ul li:last-child { border-bottom: none; }
+
+.latam-challenges {
+    background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 50%, #e3f2fd 100%);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+.latam-challenges h3 {
+    font-size: 1.2rem;
+    color: #7a3b00;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.challenge-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.challenge-item i {
+    font-size: 1.8rem;
+    color: #e87b00;
+    margin-bottom: 0.6rem;
+}
+.challenge-item h4 {
+    font-size: 0.9rem;
+    color: #5a3000;
+    margin-bottom: 0.4rem;
+}
+.challenge-item p {
+    font-size: 0.78rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   NUEVAS CLASES — Tratamiento integral
+   ===================================================== */
+.treatment-integral {
+    margin-top: 1.2rem;
+    border-top: 2px dashed #c5d3f8;
+    padding-top: 1rem;
+}
+.treatment-integral h5 {
+    font-size: 0.93rem;
+    color: #2c3a7a;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.treatment-integral h5 i { color: #4a6cf7; }
+.treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.7rem;
+}
+.ti-block {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    border-left: 3px solid #4a6cf7;
+}
+.ti-block strong {
+    display: block;
+    font-size: 0.8rem;
+    color: #2c3a7a;
+    margin-bottom: 0.3rem;
+}
+.ti-block p {
+    font-size: 0.76rem;
+    color: #444;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* =====================================================
+   NUEVAS CLASES — Red de trastornos y Ruta terapéutica
+   ===================================================== */
+.disorder-network,
+.therapeutic-route {
+    background: white;
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 3px 16px rgba(60,80,180,0.08);
+}
+.disorder-network h3,
+.therapeutic-route h3 {
+    font-size: 1.2rem;
+    color: #2c3a7a;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.disorder-network-svg-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+.disorder-network-svg-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.route-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.route-step {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    text-align: center;
+    min-width: 130px;
+    flex: 1;
+    max-width: 170px;
+    box-shadow: 0 2px 8px rgba(60,80,180,0.08);
+    border-top: 4px solid #4a6cf7;
+}
+.route-icon {
+    font-size: 1.4rem;
+    color: #4a6cf7;
+    margin-bottom: 0.4rem;
+}
+.route-label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #2c3a7a;
+    margin-bottom: 0.3rem;
+}
+.route-sublabel {
+    font-size: 0.72rem;
+    color: #666;
+    line-height: 1.4;
+}
+.route-arrow {
+    font-size: 1.4rem;
+    color: #4a6cf7;
+    font-weight: bold;
+    flex: 0 0 auto;
+}
+@media (max-width: 600px) {
+    .route-flow { flex-direction: column; align-items: stretch; }
+    .route-step { max-width: 100%; }
+    .route-arrow { transform: rotate(90deg); align-self: center; }
+    .latam-grid { grid-template-columns: 1fr; }
+    .challenges-grid { grid-template-columns: 1fr; }
+    .treatment-grid { grid-template-columns: 1fr; }
+    .tensions-grid { grid-template-columns: 1fr; }
+    .paradigm-flow, .mbm-flow { flex-direction: column; align-items: center; }
+    .paradigm-split { flex-direction: column; align-items: center; gap: 0.9rem; padding-top: 0; }
+    .paradigm-split::before,
+    .paradigm-split .paradigm-node::before { display: none; }
+    .paradigm-legend { gap: 0.7rem; }
+    .mbm-mental-group { flex-direction: column; gap: 0.7rem; }
+    .mbm-lateral-connector { width: 0; height: 22px; border-top: none; border-left: 2px dashed #43a047; }
+}
+
+/* =====================================================
+   NUEVAS CLASES — Disclaimer educativo del test
+   ===================================================== */
+.edu-disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: #fff3e0;
+    border: 1.5px solid #ffb74d;
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 2rem;
+    color: #5a3000;
+    font-size: 0.87rem;
+    line-height: 1.6;
+}
+.edu-disclaimer i {
+    color: #e67e00;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+
+/* Hero estable con zoom: conserva las animaciones sin cubrir estadísticas. */
+.hero-content {
+    min-width: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1300px) {
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(100%, 860px);
+        gap: 1.5rem;
+        padding: 7.5rem 2rem 3rem;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
