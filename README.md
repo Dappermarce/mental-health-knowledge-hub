@@ -32,7 +32,7 @@ Revisión
 
 Documentación académica
 
-- `CITATION.cff`: metadatos para citar la versión 2.0.
+- `CITATION.cff`: metadatos para citarlo.
 - `EDITORIAL_POLICY.md`: jerarquía de fuentes, voz y límites de las afirmaciones.
 - `CONTRIBUTING.md`: procedimiento para proponer correcciones verificables.
 
