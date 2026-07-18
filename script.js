@@ -350,25 +350,102 @@ function initializeCounters() {
 // =============================================
 function initializeBranchFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const branchCards = document.querySelectorAll('.branch-card');
-    
+    const branchCards = Array.from(document.querySelectorAll('.branch-card'));
+    const branchToggle = document.getElementById('branch-toggle');
+    const branchToggleText = branchToggle?.querySelector('.branch-toggle-text');
+    const branchViewStatus = document.getElementById('branch-view-status');
+    const compactLimit = 9;
+    let activeFilter = 'all';
+    let showAll = false;
+
+    const impactLabels = {
+        es: { 2: 'especializado', 3: 'moderado', 4: 'alto', 5: 'muy alto' },
+        en: { 2: 'specialized', 3: 'moderate', 4: 'high', 5: 'very high' }
+    };
+
+    function isEnglish() {
+        return window.__lang === 'en' || document.documentElement.lang === 'en';
+    }
+
+    function refreshImpactLabels() {
+        const lang = isEnglish() ? 'en' : 'es';
+        branchCards.forEach(card => {
+            const impact = card.querySelector('.branch-popularity');
+            if (!impact) return;
+            const score = (impact.textContent.match(/★/g) || []).length;
+            const level = impactLabels[lang][score] || (lang === 'en' ? 'indicative' : 'orientativo');
+            const label = lang === 'en'
+                ? `Indicative global reach: ${score} out of 5 (${level}). This is not a quality ranking.`
+                : `Alcance global orientativo: ${score} de 5 (${level}). No es una clasificación de calidad.`;
+            impact.setAttribute('role', 'img');
+            impact.setAttribute('aria-label', label);
+            impact.setAttribute('title', label);
+        });
+    }
+
+    function updateBranchView(animate = false) {
+        let visibleCount = 0;
+        branchCards.forEach((card, index) => {
+            const category = card.getAttribute('data-category');
+            const matchesFilter = activeFilter === 'all' || category === activeFilter;
+            const withinCompactView = activeFilter !== 'all' || showAll || index < compactLimit;
+            const shouldShow = matchesFilter && withinCompactView;
+
+            card.classList.toggle('hidden', !shouldShow);
+            if (shouldShow) {
+                visibleCount += 1;
+                if (animate) card.style.animation = 'fadeInUp 0.5s ease-out';
+            }
+        });
+
+        const english = isEnglish();
+        if (branchToggle) {
+            branchToggle.hidden = activeFilter !== 'all';
+            branchToggle.setAttribute('aria-expanded', String(showAll));
+        }
+        if (branchToggleText) {
+            branchToggleText.textContent = showAll
+                ? (english ? 'Show only 9 examples' : 'Mostrar solo 9 ejemplos')
+                : (english ? 'Show all 25 branches' : 'Mostrar las 25 ramas');
+        }
+        if (branchViewStatus) {
+            if (activeFilter !== 'all') {
+                branchViewStatus.textContent = english
+                    ? `Showing ${visibleCount} branches in the selected category.`
+                    : `Mostrando ${visibleCount} ramas de la categoría seleccionada.`;
+            } else if (showAll) {
+                branchViewStatus.textContent = english
+                    ? 'Showing all 25 branches.'
+                    : 'Mostrando las 25 ramas.';
+            } else {
+                branchViewStatus.textContent = english
+                    ? 'Showing 9 of 25 branches. Use a filter or expand the full atlas.'
+                    : 'Mostrando 9 de 25 ramas. Usa un filtro o amplía el atlas completo.';
+            }
+        }
+    }
+
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
+            activeFilter = this.getAttribute('data-filter');
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            
-            branchCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    card.classList.remove('hidden');
-                    card.style.animation = 'fadeInUp 0.5s ease-out';
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+            updateBranchView(true);
         });
     });
+
+    branchToggle?.addEventListener('click', function() {
+        showAll = !showAll;
+        updateBranchView(true);
+    });
+
+    document.addEventListener('languagechange', function() {
+        refreshImpactLabels();
+        updateBranchView();
+    });
+
+    refreshImpactLabels();
+    updateBranchView();
 }
 
 // =============================================
