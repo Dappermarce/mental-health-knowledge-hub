@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeuroMind Atlas | Psicología, psiquiatría y neurociencia</title>
     <meta name="description" content="Atlas educativo bilingüe de psicología, psiquiatría y neurociencia: historia, conceptos, salud mental, fuentes académicas y recursos interactivos.">
-    <meta name="author" content="Marcelo, C. K.">
+    <meta name="author" content="Marcelo C. K.">
     <meta name="keywords" content="psicología, psiquiatría, salud mental, terapia, neurociencia, desarrollo personal, trastornos mentales, historia de la psicología">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#172554">
     <meta name="citation_title" content="NeuroMind Atlas: Psicología, psiquiatría y neurociencia">
-    <meta name="citation_author" content="Marcelo, C. K.">
+    <meta name="citation_author" content="Marcelo C. K.">
     <meta name="citation_publication_date" content="2026">
     <meta name="citation_online_date" content="2026/07/15">
     <link rel="canonical" href="https://neuromindatlas.vercel.app/">
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NeuroMind Atlas | Psicología y salud mental">
     <meta name="twitter:description" content="Atlas educativo bilingüe de psicología, psiquiatría y neurociencia.">
-    <link rel="stylesheet" href="styles.css?v=20260716-1">
+    <link rel="stylesheet" href="styles.css?v=20260718-1">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -34,7 +34,7 @@
       "url": "https://neuromindatlas.vercel.app/",
       "description": "Atlas educativo bilingüe de psicología, psiquiatría y neurociencia.",
       "inLanguage": ["es", "en"],
-      "creator": { "@type": "Person", "name": "Marcelo, C. K." },
+      "creator": { "@type": "Person", "name": "Marcelo C. K." },
       "sameAs": "https://github.com/Dappermarce/NeuroMind-Atlas"
     }
     </script>
@@ -460,7 +460,41 @@
             <p class="section-subtitle">La psicología no es una sola disciplina con muchos nombres decorativos. Reúne áreas académicas, profesiones reguladas y campos interdisciplinarios cuyo reconocimiento cambia según el país.</p>
             <div class="reading-time"><i class="fas fa-clock"></i> Tiempo estimado de lectura: 6 min</div>
 
-            <div class="branches-grid">
+            <div class="branch-explorer" aria-labelledby="branch-explorer-title">
+                <div class="branch-explorer-heading">
+                    <div>
+                        <h3 id="branch-explorer-title">Explora sin perderte entre tarjetas</h3>
+                        <p>La vista inicial muestra nueve ejemplos para reducir la carga visual. Puedes desplegar el atlas completo o filtrar directamente por categoría.</p>
+                    </div>
+                    <button class="branch-toggle" id="branch-toggle" type="button" aria-controls="branches-grid" aria-expanded="false">
+                        <span class="branch-toggle-text">Mostrar las 25 ramas</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="branch-impact-legend" aria-label="Leyenda de alcance global orientativo">
+                    <span class="impact-legend-title">Alcance global orientativo</span>
+                    <span><strong aria-hidden="true">★★★★★</strong> Muy alto</span>
+                    <span><strong aria-hidden="true">★★★★☆</strong> Alto</span>
+                    <span><strong aria-hidden="true">★★★☆☆</strong> Moderado</span>
+                    <span><strong aria-hidden="true">★★☆☆☆</strong> Especializado</span>
+                    <p>Resume presencia internacional en investigación, formación y aplicación profesional. Es una orientación editorial, no una medida de calidad, valor científico ni importancia humana.</p>
+                </div>
+
+                <div class="branch-filter" aria-label="Filtrar ramas por categoría">
+                    <h3>Filtrar por Categoría</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Todas las Ramas</button>
+                        <button class="filter-btn" data-filter="clinical">Clínica</button>
+                        <button class="filter-btn" data-filter="research">Investigación</button>
+                        <button class="filter-btn" data-filter="applied">Aplicada</button>
+                        <button class="filter-btn" data-filter="developmental">Desarrollo</button>
+                    </div>
+                </div>
+                <p class="branch-view-status" id="branch-view-status" aria-live="polite"></p>
+            </div>
+
+            <div class="branches-grid" id="branches-grid">
                 <div class="branch-card" data-category="clinical">
                     <div class="branch-icon"><i class="fas fa-user-friends"></i></div>
                     <h3>Psicología Social</h3>
@@ -837,18 +871,6 @@
                         <span class="branch-tag">Clínica</span>
                         <span class="branch-popularity">★★★★☆</span>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Branch Filter -->
-            <div class="branch-filter">
-                <h3>Filtrar por Categoría</h3>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Todas las Ramas</button>
-                    <button class="filter-btn" data-filter="clinical">Clínica</button>
-                    <button class="filter-btn" data-filter="research">Investigación</button>
-                    <button class="filter-btn" data-filter="applied">Aplicada</button>
-                    <button class="filter-btn" data-filter="developmental">Desarrollo</button>
                 </div>
             </div>
         </div>
@@ -2690,7 +2712,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 NeuroMind Atlas - Guía Completa | Creado por <strong>Marcelo C. K.</strong></p>
-                <p class="creator-signature">Cita sugerida: Marcelo, C. K. (2026). <em>NeuroMind Atlas</em>.</p>
+                <p class="creator-signature">Cita sugerida: Marcelo C. K. (2026). <em>NeuroMind Atlas</em>.</p>
                 <p class="creator-signature"><a href="https://github.com/Dappermarce/NeuroMind-Atlas" target="_blank" rel="noopener">Código y documentación académica</a></p>
             </div>
         </div>
@@ -2698,7 +2720,6 @@
 
     <script src="assets/translations.js"></script>
     <script src="assets/i18n.js"></script>
-    <script src="script.js?v=20260716-1"></script>
+    <script src="script.js?v=20260718-1"></script>
 </body>
 </html>
-
